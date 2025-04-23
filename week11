@@ -1,0 +1,38 @@
+package am;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+public class week11 {
+
+	public static void main(String[] args)throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver driver=new ChromeDriver();
+		Actions builder=new Actions(driver);
+		driver.get("https://www.google.co.in/");
+		WebElement searchbar=driver.findElement(By.name("q"));
+		searchbar.sendKeys("Myntra");
+		searchbar.submit();
+		Thread.sleep(3000);
+		WebElement profileHyperlink=driver.findElement(By.xpath("//span[normalize-space()='profile'])[1]"));
+		profileHyperlink.click();
+		WebElement loginBtn=driver.findElement(By.xpath("//a[normalize-space()='login/signup'][1]"));
+		loginBtn.click();
+		WebElement mobileNo=driver.findElement(By.xpath("(//input[@type='tel'][1]"));
+		mobileNo.sendKeys("7569610844");
+		WebElement continueBtn=driver.findElement(By.xpath("(//div[@class='submitBottomoption'][1]"));
+		continueBtn.click();
+		WebElement otp01=
+			driver.findElement(By.xpath("(//input@name='otp0'])[1]"));
+		WebElement otp02=
+				driver.findElement(By.xpath("(//input@name='otp1'])[1]"));
+		WebElement otp03=
+				driver.findElement(By.xpath("(//input@name='otp2'])[1]"));
+				
+				
+
+	}
+
+}
+			
