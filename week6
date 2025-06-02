@@ -1,42 +1,37 @@
-package pack1;
-
+package CSE;
 import java.util.Iterator;
 import java.util.Set;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 public class Week6 {
-
-	public static void main(String[] args) throws InterruptedException{
-		WebDriver driver=new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.get("https://www.ajio.com/");
-		Thread.sleep(2000);
-		WebElement ajioLink = driver.findElement(By.xpath("//*[@id=\"loginAjio\"]"));
-		ajioLink.click();
-		Thread.sleep(2000);
-		WebElement facebookBtn = driver.findElement(By.xpath("//*[@id=\"login-modal\"]/div/div/div[2]/div/form/div[1]/div[1]/div[1]/div"));
-		facebookBtn.click();
-		Thread.sleep(2000);
-		Set parentWindow = driver.getWindowHandles();
-		Iterator iterator = parentWindow.iterator();
-		while(iterator.hasNext())
-		{
-			String childWindow = (String) iterator.next();
-			if(!parentWindow.equals(childWindow))
-			{
-				driver.switchTo().window(childWindow);
-				}
-			}
-		WebElement emailOrMobileNo = driver.findElement(By.xpath("//*[@id=\"login-modal\"]/div/div/div[2]/div/form/div[2]/div[1]/label"));
-		emailOrMobileNo.sendKeys("varsha@gmail.com");
-		WebElement pwd = driver.findElement(By.xpath("//*[@id=\"loginform\"]/div[2]/div/label"));
-		pwd.sendKeys("@123");
-		WebElement loginBtn = driver.findElement(By.xpath("//*[@id=\"u_0_0_vp\"]"));
-		loginBtn.click();
+public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+	        WebDriver driver = new ChromeDriver();
+	        driver.manage().window().maximize();
+	        driver.get("https://www.ajio.com");
+	        Thread.sleep(500);
+	        WebElement loginBtn = driver.findElement(By.id("login"));
+	        loginBtn.click();
+	        Thread.sleep(1000);
+	        WebElement mobileInput = driver.findElement(By.name("username")); 
+	        mobileInput.sendKeys("819091129");
+	        WebElement continueBtn = driver.findElement(By.className("login-btn"));
+	        continueBtn.click();
+	        Thread.sleep(1000);
+	        WebElement nameInput = driver.findElement(By.name("username")); 
+	        nameInput.sendKeys("Anjali");
+	        WebElement emailInput = driver.findElement(By.name("email")); 
+	        emailInput.sendKeys("deepika@gmail.com");
+	        WebElement genderOption = driver.findElement(By.xpath("//input[@value='female']")); 
+	        genderOption.click();
+	        Thread.sleep(1000);
+	        WebElement otpInput = driver.findElement(By.name("otp")); 
+	        otpInput.sendKeys("901236");
+	        WebElement startBtn = driver.findElement(By.xpath("//button[@type='submit']"));
+	        startBtn.click();
+	        Thread.sleep(2000);
+	        driver.quit();
+	    }
 	}
-
-}
