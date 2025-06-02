@@ -1,57 +1,27 @@
-package week4;
+package CSE;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-public class exp4 {
+public class Week4 {
+
 	public static void main(String[] args) throws InterruptedException {
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://gmail.com/");
-		Thread.sleep(2000);
-		WebElement createAccount = driver.findElement(By.xpath("//*[@id=\"m2\"]/div/div/div[1]/div[2]/div/gws-dropdown-button/div[2]"));
-		createAccount.click();
-		Thread.sleep(2000);
-		WebElement myself = driver.findElement(By.xpath("//*[@id=\"m2\"]/div/div/div[1]/div[2]/div/gws-dropdown-button/a[1]/span"));
-		myself.click();
-		Thread.sleep(2000);
-		WebElement firstName = driver.findElement(By.id("firstName"));
-		firstName.sendKeys("Yellanki");
-		Thread.sleep(2000);
-		WebElement lastName = driver.findElement(By.id("lastName"));
-		lastName.sendKeys("Avinash");
-		Thread.sleep(2000);
-		WebElement bn1 = driver.findElement(By.xpath("//*[@id=\"collectNameNext\"]/div/button/span"));
-		bn1.click();
-		Thread.sleep(2000);
-		Select month = new Select(driver.findElement(By.xpath("//*[@id=\"month\"]")));
-		month.selectByValue("1");
-		Thread.sleep(2000);
-		WebElement day = driver.findElement(By.xpath("//*[@id=\"day\"]"));
-		day.sendKeys("25");
-		Thread.sleep(2000);
-		WebElement year = driver.findElement(By.xpath("//*[@id=\"year\"]"));
-		year.sendKeys("2006");
-		Thread.sleep(2000);
-		Select gender = new Select(driver.findElement(By.xpath("//*[@id=\"gender\"]")));
-		gender.selectByContainsVisibleText("1");
-		Thread.sleep(2000);
-		WebElement bn2 = driver.findElement(By.xpath("//*[@id=\"birthdaygenderNext\"]/div/button/div[3]"));
-		bn2.click();
-		Thread.sleep(2000);
-		WebElement uid = driver.findElement(By.name("Username"));
-		uid.sendKeys("avinashhh2501");		
-	    WebElement bn3 = driver.findElement(By.xpath("//*[@id=\"next\"]/div/button/span"));
-		bn3.click();
-		Thread.sleep(2000);
-	    WebElement pwsd = driver.findElement(By.name("passwd"));
-		pwsd.sendKeys("CMRIT123#");	
-		WebElement cpwsd = driver.findElement(By.name("confirm-passwd"));
-		cpwsd.sendKeys("CMRIT123#");		
-		WebElement bn4 = driver.findElement(By.xpath("//*[@id=\"createpasswordNext\"]/div/button/span"));
-		bn4.click();	
-	}
+		// TODO Auto-generated method stub
+		HashMap<String, Object> prefs = new HashMap<>();
+		        prefs.put("profile.default_content_setting_values.notifications", 2);
 
+		        ChromeOptions options = new ChromeOptions();
+		        options.setExperimentalOption("prefs", prefs);
+		        WebDriver driver = new ChromeDriver(options);
+		        driver.manage().window().maximize();
+		        driver.get("https://bankofindia.co.in");
+		        WebElement pop=driver.findElement(By.xpath("/html/body/div[1]/div[1]/div/section/div[1]/div[2]/div/div/section/div/div[2]/div/div/div/div/div/div/div/div[2]/h5[2]"));
+		        pop.click();
+	}
 }
