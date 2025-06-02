@@ -1,60 +1,52 @@
-package am;
+package CSE;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 
-public class week3 {
+public class Week3 {
 
-	public static void main(String[] args)throws InterruptedException {
-     // System.setProperty("webdriver.chromedriver","C:\\Users\\CMRCP\\Downloads\\chromedriver-win64\\chromedriver.exe");
-      WebDriver driver = new ChromeDriver();
-      driver.get("https://www.facebook.com/");
-      Thread.sleep(2000);
-      
-      driver.findElement(By.partialLinkText("Create new account")).click();
-      Thread.sleep(2000);
-      
-      driver.findElement(By.name("firstname")).sendKeys("pulusu");
-      Thread.sleep(2000);
-      
-      driver.findElement(By.name("lastname")).sendKeys("rameshreddy");
-      Thread.sleep(2000);
-      
-      WebElement mobilenoorEmailid = driver.findElement(By.name("reg_email__"));
-        mobilenoorEmailid.sendKeys("pulusurameshreddy609@gmail.com");
-        Thread.sleep(2000); 
-        
-        WebElement password = driver.findElement(By.name("reg_passwd__"));
-        password.sendKeys("ramesh@@030912");
-        Thread.sleep(2000);
-        
-        Select dataDropdown = new Select(driver.findElement(By.name("birthday_day")));
-        dataDropdown.selectByValue("5");
-        Thread.sleep(2000);
-        
-        Select monthDropdown = new Select(driver.findElement(By.name("birthday_month")));
-        monthDropdown.selectByValue("8");
-        Thread.sleep(2000);
-        
-        Select yearDropdown = new Select(driver.findElement(By.name("birthday_year")));
-        yearDropdown.selectByValue("2004");
-        Thread.sleep(2000);
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		      WebDriver driver = new ChromeDriver();
+		      driver.get("https://www.facebook.com/");
+		      Thread.sleep(2000);
+		      
+		      driver.findElement(By.partialLinkText("Create new account")).click();
+		      Thread.sleep(2000);
+		      
+		      driver.findElement(By.name("firstname")).sendKeys("chepyala");
+		      Thread.sleep(2000);
+		      
+		      driver.findElement(By.name("lastname")).sendKeys("anjali");
+		      Thread.sleep(2000);
+		      
+		      WebElement mobilenoorEmailid = driver.findElement(By.name("reg_email__"));
+		        mobilenoorEmailid.sendKeys("anjalireddy@gmail.com");
+		        Thread.sleep(2000); 
+		        
+		        WebElement password = driver.findElement(By.name("reg_passwd__"));
+		        password.sendKeys("anjali030912");
+		        Thread.sleep(2000);
+		        
+		        Select dataDropdown = new Select(driver.findElement(By.name("birthday_day")));
+                        dataDropdown.selectByValue("5");
+		        Thread.sleep(2000);
+		        
+		        Select monthDropdown = new Select(driver.findElement(By.name("birthday_month")));
+		        monthDropdown.selectByValue("2");
+		        Thread.sleep(2000);
+		        
+		        Select yearDropdown = new Select(driver.findElement(By.name("birthday_year")));
+		        yearDropdown.selectByValue("2006");
+		        Thread.sleep(2000);
+		        WebElement femaleRadioBtn = driver.findElement(By.xpath("//label[normalize-space()='Female']"));
+		        femaleRadioBtn.click();
+		        Thread.sleep(2000);  
+		        WebElement signupBtn = driver.findElement(By.name("websubmit"));
+		        signupBtn.click();
+		    }
 
-        
-        WebElement maleRadioBtn = driver.findElement(By.xpath("//label[normalize-space()='Male']"));
-        maleRadioBtn.click();
-        Thread.sleep(2000);  
-
-        WebElement signupBtn = driver.findElement(By.name("websubmit"));
-        signupBtn.click();
-
-
-    }
-
-}
-
-
-
-
+		}
